@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <script
+      src="https://kit.fontawesome.com/16626965f7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="" class="navbar-item">Task List</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h1 class="title">Tashriks Todo's</h1>
+        <p class="subtitle">
+          Welcome to the todo list! <strong>Good Luck</strong>!
+        </p>
+
+        <div class="field has-addons is-dark">
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input"
+              type="text"
+              placeholder="Create a new Task"
+              id="new-task-input"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-plus"></i>
+            </span>
+          </div>
+          <div class="control">
+            <a href="#" class="button is-dark" id="add-task-button">Add</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <article class="panel is-dark">
+          <p class="panel-heading">Tasks</p>
+          <div class="panel-block">
+            <p class="control has-icons-left">
+              <input
+                class="input is-primary"
+                type="text"
+                placeholder="Search"
+                id="search"
+              />
+              <span class="icon is-left">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </span>
+            </p>
+          </div>
+          <div id="tasks"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sectio">
+      <div class="container is-max-desktop">
+        <div class="notification is-warning">
+          You have <strong><span class="task-count">0</span></strong> tasks
+          pending.
+        </div>
+      </div>
+    </section>
+    <script src="js/script.js"></script>
+  </body>
+</html>
