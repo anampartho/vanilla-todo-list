@@ -46,7 +46,7 @@ function filterTasks(e) {
   let output = "";
 
   for (const task of tasks) {
-    if (task.details.indexOf(e.target.value) >= 0) {
+    if (task.details.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0) {
       output += `
       <div class="panel-block${
         task.completed ? " completed" : ""
