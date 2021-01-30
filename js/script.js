@@ -1,9 +1,39 @@
-// Task List
+// Task List Array
 let tasks = [];
 
-// Pending Tasks
+// Pending Tasks Span
 let taskCount = document.querySelector(".task-count");
 
+// Complete or incomplete task
+document.addEventListener("click", completeTask);
+document.addEventListener("click", removeTask);
+
+// Search Input Field
+let searchInput = document.getElementById("search");
+searchInput.addEventListener("keyup", filterTasks);
+
+// Tasks Div
+let tasksDiv = document.getElementById("tasks");
+
+// Sort Tasks buttons
+let sortButtons = document.querySelectorAll(".panel-tabs a");
+
+sortButtons.forEach((button) => {
+  button.addEventListener("click", showTasks);
+});
+
+// Add Task Button
+let addTaskButton = document.getElementById("add-task-button");
+addTaskButton.addEventListener("click", addtask);
+
+// Task input
+let taskInput = document.getElementById("new-task-input");
+taskInput.addEventListener("keyup", addtask);
+
+/**
+ * Gets the count of pending tasks and
+ * updates the UI
+ */
 function updatePendingCount() {
   let count = 0;
   for (const task of tasks) {
@@ -15,10 +45,10 @@ function updatePendingCount() {
   taskCount.innerHTML = count;
 }
 
-// Search
-let searchInput = document.getElementById("search");
-searchInput.addEventListener("keyup", filterTasks);
-
+/**
+ * Filter the Task list based on user input
+ * @param  {Object} event Even object for later use
+ */
 function filterTasks(e) {
   let output = "";
 
@@ -39,24 +69,10 @@ function filterTasks(e) {
   }
 }
 
-// Tasks Div
-let tasksDiv = document.getElementById("tasks");
-
-// Sort Tasks buttons
-let sortButtons = document.querySelectorAll(".panel-tabs a");
-
-sortButtons.forEach((button) => {
-  button.addEventListener("click", showTasks);
-});
-
-// Add Task
-let addTaskButton = document.getElementById("add-task-button");
-addTaskButton.addEventListener("click", addtask);
-
-// Task input
-let taskInput = document.getElementById("new-task-input");
-taskInput.addEventListener("keyup", addtask);
-
+/**
+ * Add New tasks to the list
+ * @param  {Object} event Even object for later use
+ */
 function addtask(e) {
   let taskValue = taskInput.value;
 
@@ -78,7 +94,10 @@ function addtask(e) {
   showTasks();
 }
 
-// Update Tasks
+/**
+ * Show tasks in front end
+ * @param  {Object} event Even object for later use
+ */
 function showTasks(e) {
   let output = "";
   let items = "all";
@@ -109,11 +128,10 @@ function showTasks(e) {
   tasksDiv.innerHTML = output;
 }
 
-// Complete or incomplete task
-document.addEventListener("click", completeTask);
-document.addEventListener("click", removeTask);
-
-// Compelete Task Function
+/**
+ * Complete a prticualr task
+ * @param  {Object} event Even object for later use
+ */
 function completeTask(e) {
   if (e.target && e.target.classList.value === "complete") {
     e.stopPropagation();
@@ -131,7 +149,10 @@ function completeTask(e) {
   }
 }
 
-// Remove Task
+/**
+ * Remove a particular task
+ * @param  {Object} event Even object for later use
+ */
 function removeTask(e) {
   if (e.target && e.target.classList.value === "remove-task") {
     e.stopPropagation();
@@ -149,6 +170,7 @@ function removeTask(e) {
   }
 }
 
+// Init Function
 function init() {
   if (localStorage.getItem("tasks")) {
     tasks = JSON.parse(localStorage.getItem("tasks"));
