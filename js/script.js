@@ -15,13 +15,6 @@ searchInput.addEventListener("keyup", filterTasks);
 // Tasks Div
 let tasksDiv = document.getElementById("tasks");
 
-// Sort Tasks buttons
-let sortButtons = document.querySelectorAll(".panel-tabs a");
-
-sortButtons.forEach((button) => {
-  button.addEventListener("click", showTasks);
-});
-
 // Add Task Button
 let addTaskButton = document.getElementById("add-task-button");
 addTaskButton.addEventListener("click", addtask);
