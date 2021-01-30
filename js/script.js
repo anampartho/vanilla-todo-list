@@ -126,9 +126,9 @@ function completeTask(e) {
     }
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    showTasks();
+    updatePendingCount();
   }
-  showTasks();
-  updatePendingCount();
 }
 
 // Remove Task
@@ -144,9 +144,9 @@ function removeTask(e) {
     }
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    showTasks();
+    updatePendingCount();
   }
-  showTasks();
-  updatePendingCount();
 }
 
 function init() {
